@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cálculo Quinta Categoría</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+    <div style="background-color: #000080;color: white;margin-top: 35px;height: 35px">
+        <h3>Cálculo el descuento por el impuesto a la Renta de quinta categoría</h3></div>
+    <br><br>
+    <table class="table table-bordered">
+        <tr>
+            <td>Proyección de ingresos brutos anuales</td>
+            <td>S/.</td>
+            <td th:text="${asalariado.proyIngbruto}"></td>
+        </tr>
+
+        <tr>
+            <td>Monto de 7 UIT descontable</td>
+            <td>S/.</td>
+            <td th:text="${asalariado.monto7UIT}"></td>
+        </tr>
+
+        <tr>
+            <td>Renta neta gravable de impuesto de quinta</td>
+            <td>S/.</td>
+            <td th:text="${asalariado.rentaNet}"></td>
+        </tr>
+    </table>
+    <br/>
+
+    <table class="table table-bordered">
+        <tr class="success">
+            <td>Retención Mensual aproximada que se realiza al trabajador</td>
+            <td th:text="${asalariado.retmensual}"></td>
+        </tr>
+
+        <tr class="success">
+            <td>Unidad Impositiva Tributaria que se realiza al trabajdor</td>
+            <td th:text="${asalariado.Uit}"></td>
+        </tr>
+    </table>
+
+    <br/>
+
+    <table class="table table-bordered">
+        <thead align="justify" style="background-color: #9a1f1f;color: white">
+        <tr>
+            <th scope="col">ESCALA UIT</th>
+            <th scope="col">Tasas</th>
+            <th scope="col">Máximos afecto en S/.</th>
+            <th scope="col">Monto afecto en S/.</th>
+            <th scope="col">Impuesto en S/.</th>
+        </tr>
+        <thead>
+
+        <tbody>
+        <tr>
+            <td>Hasta 5 UIT</td>
+            <td>8%</td>
+            <td th:text="${asalariado.maximo5}"></td>
+            <td th:text="${asalariado.mont5}"></td>
+            <td th:text="${asalariado.Impuesto5}"></td>
+        </tr>
+
+        <tr>
+            <td>Mas de 5 UIT hasta 20 UIT</td>
+            <td>14%</td>
+            <td th:text="${asalariado.maximo20}"></td>
+            <td th:text="${asalariado.mont20}"></td>
+            <td th:text="${asalariado.Impuesto20}"></td>
+        </tr>
+
+        <tr>
+            <td>Mas de 20 UIT hasta 35 UIT</td>
+            <td>17%</td>
+            <td th:text="${asalariado.maximo35}"></td>
+            <td th:text="${asalariado.mont35}"></td>
+            <td th:text="${asalariado.Impuesto35}"></td>
+        </tr>
+
+        <tr>
+            <td>Mas de 35 UIT hasta 45 UIT</td>
+            <td>20%</td>
+            <td th:text="${asalariado.maximo45}"></td>
+            <td th:text="${asalariado.mont45}"></td>
+            <td th:text="${asalariado.Impuesto45}"></td>
+        </tr>
+
+        <tr>
+            <td>Mas de 45</td>
+            <td>30%</td>
+            <td th:text="${asalariado.maximo45m}"></td>
+            <td th:text="${asalariado.mont45m}"></td>
+            <td th:text="${asalariado.Impuesto45m}"></td>
+        </tr>
+
+        <tr style="background-color:black;color: white">
+            <td colspan="3">Inpuesto a la Renta a pagar por el año en curso</td>
+            <td></td>
+            <td th:text="${asalariado.Impuesto}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <br/>
+    <a href="/asalariado/list" class="btn btn-primary">Listar Asalariados</a> &nbsp;&nbsp;&nbsp;
+
+    <br><br>
+</div>
+</body>
+</html>

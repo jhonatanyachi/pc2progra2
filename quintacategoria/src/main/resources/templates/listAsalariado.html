@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <title>Asalariados</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <h2>Asalariados</h2><br/>
+    <a href="/index">Añadir Asalariado</a>
+    <table class="table">
+        <thead>
+
+        <tr>
+            <td>Nombre</td>
+            <td>Apellido</td>
+            <td>Total Impuesto</td>
+            <td>Total Neto</td>
+            <td>Total Bruto</td>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="asalariado : ${asalariados}">
+            <td th:text="${asalariado.Nombre}"></td>
+            <td th:text="${asalariado.Apellido}"></td>
+            <td th:text="${asalariado.TotalImpuesto}"></td>
+            <td th:text="${asalariado.TotalNeto}"></td>
+            <td th:text="${asalariado.TotalBruto}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

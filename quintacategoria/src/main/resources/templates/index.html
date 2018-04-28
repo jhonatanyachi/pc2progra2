@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Nuevo Asalariado</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<div class="container">
+    <h3>Nuevo Asalariado</h3> <br>
+    <form action="#" th:action="@{/index}" th:object="${asalariado}" method="post">
+        <table class="table">
+            <tr>
+                <td>Dni:</td>
+                <td><input type="text" th:field="*{Dni}" class="form-control"></td>
+                <td th:if="${#fields.hasErrors('Dni')}"
+                    th:errors="*{Dni}">Dni Error</td>
+            </tr>
+
+            <tr>
+                <td>Nombre:</td>
+                <td><input type="text" th:field="*{Nombre}" class="form-control"></td>
+                <td th:if="${#fields.hasErrors('Nombre')}"
+                    th:errors="*{Nombre}">Nombre Error</td>
+            </tr>
+
+            <tr>
+                <td>Apellido:</td>
+                <td><input type="text" th:field="*{Apellido}" class="form-control"></td>
+                <td th:if="${#fields.hasErrors('Apellido')}"
+                    th:errors="*{Apellido}">Apellido Error</td>
+            </tr>
+
+            <tr>
+                <td>Sueldo:</td>
+                <td><input type="text" th:field="*{Sueldo}" class="form-control"></td>
+                <td th:if="${#fields.hasErrors('Sueldo')}"
+                    th:errors="*{Sueldo}">Sueldo Error</td>
+            </tr>
+                <td>Tipo:</td>
+                <td><select type="text" class="form-control" th:field="*{Tiposueldo}">
+                <option value="" th:value="D">Dependiente</option>
+                <option value="" th:value="I">Independiente</option>
+                </select></td>
+                <td th:if="${#fields.hasErrors('Tiposueldo')}"
+                    th:errors="*{Tiposueldo}">Tiposueldo Error</td>
+            <tr>
+
+            </tr>
+
+            <tr>
+                <td>UIT:</td>
+                <td><input type="text" th:field="*{Uit}" class="form-control"></td>
+                <td th:if="${#fields.hasErrors('Uit')}"
+                    th:errors="*{Uit}">Uit Error</td>
+            </tr>
+
+        </table>
+        <input type="submit" value="Calcular" class="btn btn-success btn-block">
+    </form>
+    <br/>
+    <a href="/asalariado/list" class="btn btn-primary">Listar Asalariados</a>
+</div>
+</body>
+</html>
